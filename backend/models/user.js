@@ -15,11 +15,10 @@ const userSChema = new mongoose.Schema({
         type: String,
         required:[ true, "Please enter your Password"],
         minLength:[6,'Password must be longer than 6 characters'],
-        select:false
     },
-    avatar:{
-        public_id:String,
-        url:String,
+    profilePic:{
+        type:String,
+        default:"",
     },
     role:{
         type:String,
@@ -28,7 +27,7 @@ const userSChema = new mongoose.Schema({
     },
     resetPasswordToken:String,
     resetPasswordExpire:Date,
-});
+},{timestamps:true});
 
 
 export default mongoose.model("User",userSChema);
